@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)https://www.jmarshall.com/easy/html/render.cgi -->
+<html crosspilot=""><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <title>Office Quotes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-gap: 20px;
+      justify-items: center;
+      padding: 20px;
+    }
+    .quote-box {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+<script type="text/javascript" src="./Office Quotes_files/c7fa7451-6f95-4815-ac32-b8cc2537837a" data-awssuidacr="2P2UW81x9AqAKvbAD6SQRdB0dJMSBjRv"></script></head>
+<body>
+  <h1>Office Quotes</h1>
+  <div id="quotes">
+          <div class="quote-box">
+            <p><b>hala:</b> "Hey Bjorn, say something racist"</p>
+          </div>
+        
+          <div class="quote-box">
+            <p><b>Kars3n:</b> "Things are gonna get LARGE"</p>
+          </div>
+        </div>
+
+  <script>
+    async function fetchQuotes() {
+      try {
+        const response = await fetch('https://script.google.com/macros/s/AKfycbxIElXW-XeFxlnc8e8F3Xnfy6nyqCzwCU3faiex1WnO_VFhmgn9aHxAyZ09N34MbECo5w/exec');
+        const data = await response.json();
+
+        // Remove row 1 (header) from the data
+        data.shift();
+
+        const quotesElement = document.getElementById('quotes');
+        const quotesHtml = data.map((item) => `
+          <div class="quote-box">
+            <p><b>${item.person}:</b> ${item.quote}</p>
+          </div>
+        `).join('');
+        quotesElement.innerHTML = quotesHtml;
+      } catch (error) {
+        console.error('Error fetching quotes:', error);
+      }
+    }
+
+    fetchQuotes();
+  </script>
+
+
+<script>(() => {
+        window.addoncropExtensions = window.addoncropExtensions || [];
+        window.addoncropExtensions.push({
+            mode: 'emulator',
+            emulator: 'Foxified',
+            extension: {
+                id: 44,
+                name: 'YouTube Downloader by Addoncrop',
+                version: '17.2.8',
+                date: 'July 14, 2023',
+            },
+            flixmateConnected: false,
+        });
+    })();</script></body></html>
